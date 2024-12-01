@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -O2 -D_DEFAULT_SOURCE
 TARGET = joydrone
-SRCS = joystick.c
+SRCS = main.c joystick.c crsf.c display.c
 OBJS = $(SRCS:.c=.o)
 
 # Debug build flags
