@@ -29,7 +29,8 @@ int main() {
     if (!SIMULATE_SERIAL) {
         serial_fd = init_serial("/dev/ttyAMA0");
         if (serial_fd < 0) {
-            fprintf(stderr, "Failed to initialize serial port - continuing in simulation mode\n");
+	  fprintf(stderr, "Failed to initialize serial port\n");
+          return 2;
         }
     }
 
@@ -40,7 +41,6 @@ int main() {
     printf("Right stick: %s - %d axes, %d buttons\n", 
            joystick_get_name(&right_stick), right_stick.axis_count, right_stick.button_count);
     printf("Serial mode: %s\n", SIMULATE_SERIAL ? "SIMULATION" : "REAL");
-    sleep(2);  // Give time to read the initialization info
     #endif
 
     // Main loop
