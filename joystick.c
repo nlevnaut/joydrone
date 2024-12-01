@@ -9,8 +9,8 @@
 #include <time.h>
 
 // Debug configuration
-#define DEBUG_OUTPUT 1  // Set to 0 to disable debug printing
-#define SIMULATE_SERIAL 1  // Set to 0 to use real serial port
+//#define DEBUG_OUTPUT 1  // Set to 0 to disable debug printing
+//#define SIMULATE_SERIAL 1  // Set to 0 to use real serial port
 
 // CRSF Protocol Constants
 #define CRSF_SYNC_BYTE 0xC8
