@@ -2,6 +2,8 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+#include <stdint.h>
+#include <stdarg.h>
 #include "joystick.h"
 #include "crsf.h"
 
