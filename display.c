@@ -13,11 +13,6 @@ static void buffer_printf(char *buffer, size_t *offset, const char *format, ...)
     va_end(args);
 }
 
-void display_clear_screen(void) {
-    // Move cursor home and clear to end of screen
-    printf("\033[H\033[J");
-}
-
 void display_joystick_info(Joystick *left, Joystick *right) {
     size_t offset = 0;
     
@@ -175,10 +170,11 @@ void display_crsf_info(uint16_t *channels, CRSF_Frame *frame) {
 void display_full_debug(Joystick *left, Joystick *right, uint16_t *channels, CRSF_Frame *frame) {
     frame_counter++;
     // Save cursor and move to home
-    printf("\033[s\033[H");
+    printf("\033[H\033[J");
+    // Draw output
     printf("Frame: %lu\n\n", frame_counter);
     display_joystick_info(left, right);
     display_crsf_info(channels, frame);
-    // Restore cursor position
-    printf("\033[u");
+    // make sure output is displayed
+    fflush(stdout);
 }
