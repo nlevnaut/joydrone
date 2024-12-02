@@ -19,9 +19,6 @@ void display_joystick_info(Joystick *left, Joystick *right) {
     // Clear buffer
     memset(display_buffer, 0, sizeof(display_buffer));
     
-    // Save cursor position and clear to end of screen
-    buffer_printf(display_buffer, &offset, "\033[s\033[J");
-    
     buffer_printf(display_buffer, &offset, "%-40s %s\n", "Left Stick Axes:", "Right Stick Axes:");
     buffer_printf(display_buffer, &offset, "%-40s %s\n", left->name, right->name);
     
